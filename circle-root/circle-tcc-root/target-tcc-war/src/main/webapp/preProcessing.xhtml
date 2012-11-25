@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+
+	<h:panelGrid columns="2">
+
+		<div>
+			<h:form id="formMenu">
+				<h:panelGrid columns="1">
+
+					<p:commandButton id="cancelExtraction" ajax="false" value="Cancel"
+						action="#{menuView.cancelExtraction()}" />
+
+					<p:commandButton id="nextStep" ajax="false" value="Next Step"
+						action="#{menuView.nextStep()}" />
+
+					<p:commandButton id="viewResults" ajax="false" value="View Results"
+						action="#{menuView.viewResults()}" />
+
+				</h:panelGrid>
+			</h:form>
+		</div>
+
+		<div>
+			<p:inputTextarea id="originalText"
+				value="#{preProcessingView.originalText}" readonly="true" cols="100"
+				rows="40" />
+		</div>
+
+	</h:panelGrid>
+</h:body>
+</html>

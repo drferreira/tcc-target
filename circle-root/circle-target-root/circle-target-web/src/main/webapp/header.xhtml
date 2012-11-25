@@ -1,0 +1,36 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<p:growl id="messages" showDetail="true" life="4000" />
+	<h:form>
+		<div id="welcome">
+			<p:commandLink action="#{headerView.home()}" ajax="false">
+				<h:outputText value="#{home.hello} #{headerView.nameUserLogged}" />
+			</p:commandLink>
+		</div>
+		<div id="menu_top">
+
+			<h:panelGrid columns="4">
+				<p:commandLink action="#{headerView.projects()}" ajax="false">
+					<h:outputText value="Projects" />
+				</p:commandLink>
+
+				<p:commandLink action="#{headerView.friends()}" ajax="false">
+					<h:outputText value="Friends" />
+				</p:commandLink>
+
+				<p:commandLink action="#{headerView.profile()}" ajax="false">
+					<h:outputText value="Profile" />
+				</p:commandLink>
+
+				<p:commandLink action="#{headerView.logout()}" ajax="false">
+					<h:outputText value="Logout" />
+				</p:commandLink>
+
+			</h:panelGrid>
+		</div>
+	</h:form>
+</ui:component>

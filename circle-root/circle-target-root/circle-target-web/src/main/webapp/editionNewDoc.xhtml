@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+	<div id="headerLock">
+		<h:panelGrid columns="2">
+			<div>IMAGEM LOCK</div>
+			<div>
+				<h:outputText value="#{creation_doc['doc.lock.text']}" />
+			</div>
+		</h:panelGrid>
+	</div>
+
+	<h:form id="editionDocForm">
+
+		<div id="inputDataArea">
+			<h:panelGrid columns="1">
+				<p:fileUpload fileUploadListener="#{creationDocView.uploadedFile}"
+					mode="simple" auto="true" />
+				<h:outputText value="#{creation_doc['doc.header.selectProject']}" />
+
+				<p:selectOneMenu value="#{creationDocView.projectSelect}">
+					<f:selectItems itemLabel="#{project.profileProject.nameProject}"
+						value="#{creationDocView.listMyProjects}" var="project" />/>
+				</p:selectOneMenu>
+			</h:panelGrid>
+		</div>
+
+		<div id="inplaceArea">
+			<h:panelGrid columns="1">
+				<h:outputText value="#{creation_doc['doc.label.file']}" />
+				<p:inplace id="nameFile" editor="true">
+					<p:inputText value="AAAAAAAAAA" required="true" label="text" />
+				</p:inplace>
+
+				<h:outputText value="#{creation_doc['doc.label.size']}" />
+				<h:outputText value="#{creationDocView.sizeFile}"
+					rendered="#{creationDocView.renderedSizeFile == true}" />
+
+				<h:outputText value="#{creation_doc['doc.label.date']}" />
+				<h:outputText value="#{creationDocView.importDate}"
+					rendered="#{creationDocView.renderedImportDate == true}" />
+			</h:panelGrid>
+		</div>
+
+		<div id="buttonsArea">
+			<h:panelGrid columns="3">
+				<p:commandButton id="save_new_file" value=""
+					action="#{creationDocView.saveNewDoc()}" />
+				<p:commandButton id="save_and_generation" value=""
+					action="#{creationDocView.saveAndGeneration()}" />
+			</h:panelGrid>
+		</div>
+	</h:form>
+</h:body>
+</html>

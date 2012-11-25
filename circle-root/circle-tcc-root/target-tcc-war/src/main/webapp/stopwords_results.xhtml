@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+
+	<h:form id="resultForm">
+		<p:dataTable id="resultTable" var="result"
+			value="#{stopWordsResultsView.listResultTable}">
+
+			<f:facet name="header">  
+            	Results process StopWords
+        	</f:facet>
+
+			<p:columnGroup type="header">
+				<p:row>
+					<p:column colspan="2" headerText="StopWords Found" />
+					<p:column colspan="2" headerText="Duplication of words" />
+				</p:row>
+
+				<p:row>
+					<p:column headerText="Value" />
+					<p:column headerText="Type StopWord" />
+					<p:column headerText="Value" />
+					<p:column headerText="Action taken" />
+				</p:row>
+			</p:columnGroup>
+
+			<p:column>
+				<h:outputText value="#{result.stopWord.stopWord.value}" />
+			</p:column>
+			<p:column>
+				<h:outputText value="#{result.stopWord.typeStopWord.typeName}" />
+			</p:column>
+			<p:column>
+				<h:outputText value="#{result.duplicatedWord.value}" />
+			</p:column>
+			<p:column>
+				<h:outputText value="Removed repeated value" />
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+	<div>
+		<h:form id="formMenu">
+			<h:panelGrid columns="5">
+
+				<p:commandButton id="cancelExtraction" ajax="false" value="Cancel"
+					action="#{menuView.cancelExtraction()}" />
+
+				<p:commandButton id="backExtraction" ajax="false"
+					value="Back Extraction" action="#{menuView.backToExtraction()}" />
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+
+	<h:form id="unknownWordsForm">
+		<p:panel id="unknownWordsPainel" header="Unknown Words! Help us ..." toggleable="true" closeSpeed="500" widgetVar="panel">
+			<p:dataTable id="unknownWordsTable" var="word" tableStyle="width:auto" value="#{stopWordsView.wordUnknownList}">
+				
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+
+	<ui:include src="/menu.xhtml" />
+</h:body>
+</html>

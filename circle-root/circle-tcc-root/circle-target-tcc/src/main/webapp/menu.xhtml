@@ -1,0 +1,29 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<div>
+		<h:form id="formMenu">
+			<h:panelGrid columns="5">
+
+				<p:commandButton ajax="false" value="Cancel"
+					action="#{menuView.cancelExtraction()}" />
+
+				<p:commandButton ajax="false" value="Next Step"
+					action="#{menuView.nextStep()}" />
+
+				<p:commandButton ajax="false" value="View Results"
+					action="#{menuView.viewResults()}" />
+
+				<p:commandButton ajax="false" value="Back Extraction"
+					action="#{menuView.backToExtraction()}" />
+
+				<p:commandButton ajax="false" value="List StopWords"
+					action="#{menuView.listStopWords()}" />
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+</ui:component>

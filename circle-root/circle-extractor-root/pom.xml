@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>circle-root</artifactId>
+		<groupId>br.org.circle</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+  <groupId>br.org.circle.extractor</groupId>
+  <artifactId>circle-extractor-root</artifactId>
+  <packaging>pom</packaging>
+  <name>circle-extractor-root</name>
+  <modules>
+  	<module>circle-extractor-business</module>
+  	<module>circle-extractor-dao</module>
+  	<module>circle-extractor-ear</module>
+  	<module>circle-extractor-web</module>
+  </modules>
+</project>

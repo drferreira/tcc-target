@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>circle-root</artifactId>
+		<groupId>br.org.circle</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>circle-tcc-root</artifactId>
+	<packaging>pom</packaging>
+	<name>circle-tcc-root</name>
+	<modules>
+		<module>circle-target-tcc</module>
+		<module>target-tcc-ear</module>
+		<module>target-tcc-war</module>
+		<module>target-tcc-kernel</module>
+	</modules>
+</project>

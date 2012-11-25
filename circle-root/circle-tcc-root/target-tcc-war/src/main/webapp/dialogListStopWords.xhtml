@@ -1,0 +1,29 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<p:dialog header="List StopWords" widgetVar="listStopWords"
+		id="listStopWords" modal="true" resizable="false" maximizable="true" minimizable="true" height="500" width="500">
+
+		<h:form id="listStopWordstForm">
+			<p:dataTable id="listTable" var="stopWord" value="#{stopWordsView.allStopWords}">
+				<p:column>
+					<f:facet name="header">
+					Value
+				</f:facet>
+					<h:outputText value="#{stopWord.stopWord.value}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+					Type
+				</f:facet>
+					<h:outputText value="#{stopWord.typeStopWord.typeName}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</p:dialog>
+
+</ui:component>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+
+	<h:form id="resultForm">
+		<p:dataTable id="resultTable" var="preProcessingCompare"
+			value="#{preProcessingResultsView.comparisonList}">
+			<p:column>
+				<f:facet name="header">
+					Original
+				</f:facet>
+				<h:outputText value="#{preProcessingCompare.original.value}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">
+					Modified
+				</f:facet>
+				<h:outputText value="#{preProcessingCompare.modified.value}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+	<ui:include src="/menu.xhtml" />
+</h:body>
+</html>

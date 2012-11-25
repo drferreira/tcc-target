@@ -1,0 +1,33 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<p:dialog header="Add Word" widgetVar="addWord" id="addWordDialog"
+	modal="true">
+	<h:form>
+		<h:outputText value="Select the type of stopword" />
+
+		<p:selectOneMenu id="typeStopword"
+			value="#{stopWordsView.selectedTypeStopWord}">
+
+			<f:selectItems value="#{stopWordsView.typeStopWords}"
+				var="typeStopWord" itemLabel="#{typeStopWord.typeName}"
+				itemValue="#{typeStopWord.typeName}" />
+
+		</p:selectOneMenu>
+
+		<h:panelGrid columns="2">
+			<p:commandButton ajax="false" value="Save"
+				id="confirmationAdditionWordButton" oncomplete="addWord.hide()"
+				action="#{stopWordsView.addAsKnown()}" />
+
+			<p:commandButton ajax="false" value="Cancel" id="closeDialog"
+				oncomplete="addWord.hide()" />
+		</h:panelGrid>
+
+	</h:form>
+</p:dialog>
+
+</ui:component>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+	<ui:include src="/header.xhtml" />
+
+	<div id="extractor_area">
+		<h:panelGrid columns="2">
+			<div id="extractor_image_area">IMAGEM EXTRACTOR</div>
+
+			<div id="extractor_text_area">
+				<h:form id="extractorDescriptions">
+					<h:outputText value="#{home['text.extractor']}" />
+					<p:commandLink id="link_extractor_more"
+						action="#{homeView.extractorMoreInformation()}" ajax="false">
+						<h:outputText value="#{home['link.extractor.more']}" />
+					</p:commandLink>
+				</h:form>
+
+				<div id="extractor_links_area">
+					<h:form id="extractorActions">
+						<h:panelGrid columns="1">
+
+							<p:commandLink id="link_upload" ajax="false" action="#{homeView.uploadFile()}">
+								<h:outputText value="#{home['link.upload.file']}" />
+							</p:commandLink>
+
+							<p:commandLink id="link_list_docs"
+								action="#{homeView.listAllDocs()}" ajax="false">
+								<h:outputText value="#{home['link.list.docs']}" />
+							</p:commandLink>
+
+							<p:commandLink id="link_extraction"
+								action="#{homeView.generateExtraction()}" ajax="false">
+								<h:outputText value="#{home['link.extraction']}" />
+							</p:commandLink>
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</div>
+		</h:panelGrid>
+	</div>
+
+	<div id="project_area">
+		<h:panelGrid columns="2">
+			<div id="project_image_area">IMAGEM PROJECT</div>
+			<div id="project_text_area">
+				<h:form>
+					<h:outputText value="#{home['text.project']}" />
+					<p:commandLink id="link_project_more"
+						action="#{homeView.projectMoreInformation()}">>
+						<h:outputText value="#{home['link.project.more']}" />
+					</p:commandLink>
+				</h:form>
+
+				<div id="project_links_area">
+					<h:form>
+						<h:panelGrid columns="1">
+							<p:commandLink id="create_project" action="#{homeView.createNewProject()}" ajax="false">
+								<h:outputText value="#{home['link.create.project']}" />
+							</p:commandLink>
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</div>
+		</h:panelGrid>
+	</div>
+
+</h:body>
+</html>

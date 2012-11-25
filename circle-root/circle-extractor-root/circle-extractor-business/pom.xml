@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>circle-extractor-root</artifactId>
+		<groupId>br.org.circle.extractor</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>circle-extractor-business</artifactId>
+	<packaging>ejb</packaging>
+
+	<name>circle-extractor-business</name>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - Dependencias 
+		do projeto - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<dependencies>
+		<dependency>
+			<groupId>br.org.circle.dependency</groupId>
+			<artifactId>circle-dep-test</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.org.circle.dependency</groupId>
+			<artifactId>circle-dep-jee</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.org.circle.dependency</groupId>
+			<artifactId>circle-dep-hibernate</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.org.circle.extractor</groupId>
+			<artifactId>circle-extractor-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.org.circle.dependency</groupId>
+			<artifactId>circle-dep-war</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - Plugins do 
+		projeto - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<build>
+	
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+					<ejbVersion>3.1</ejbVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

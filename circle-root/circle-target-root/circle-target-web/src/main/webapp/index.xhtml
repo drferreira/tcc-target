@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+
+	<p:growl id="messages" showDetail="true" life="4000" />
+	<div id="loginAndCreateArea">
+		<h:panelGrid columns="2">
+			<div id="loginFormArea">
+				<h:form id="loginForm">
+					<p:panel header="Welcome to login ...">
+						<h:panelGrid columns="2">
+							<f:facet name="headerLoginUser">Login User</f:facet>
+							<h:outputLabel for="email" value="Email: *" />
+							<p:inputText value="#{loginView.email}" id="email" />
+
+							<h:outputLabel for="password" value="Password: * " />
+							<p:password value="#{loginView.password}" id="password" />
+							<p:commandButton ajax="false" update="messages"
+								value="#{login['button.login']}" action="#{loginView.login()}" />
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</div>
+
+			<div id="createFormArea">
+				<h:form id="createUserFormArea">
+					<p:panel header="Create your User ... ">
+						<h:panelGrid columns="1">
+							<h:outputLabel for="email" value="Your email: *" />
+							<p:inputText
+								value="#{creationUserView.email}"
+								id="emailCreation" />
+
+							<h:panelGrid columns="2">
+								<h:outputLabel for="password" value="Password: *" />
+								<h:outputLabel for="password" value="Repeat Password: *" />
+								<p:password
+									value="#{creationUserView.password}"
+									id="passwordCreation" />
+								<p:password
+									value="#{creationUserView.rePassword}"
+									id="passwordRepeatCreation" />
+								<h:outputLabel value="First Name:" />
+								<h:outputLabel value="Last Name:" />
+								<p:inputText id="firstName"
+									value="#{creationUserView.firstName}" />
+								<p:inputText id="lastName"
+									value="#{creationUserView.lastName}" />
+							</h:panelGrid>
+
+							<h:outputLabel value="Birthday: *" />
+
+							<p:calendar
+								value="#{creationUserView.birthday}"
+								locale="pt" id="calendar" showOn="button" showButtonPanel="true"
+								navigator="true" />
+
+							<p:commandButton ajax="false" update="messages"
+								value="#{create_user['button_form']}"
+								action="#{creationUserView.createUser()}" />
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</div>
+
+		</h:panelGrid>
+	</div>
+
+</h:body>
+</html>

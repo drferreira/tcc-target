@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Circle-Target</title>
+</h:head>
+<h:body>
+	<ui:include src="/dialogNewStopWord.xhtml" />
+	<ui:include src="/dialogListStopWords.xhtml" />
+
+	<div>
+		<h:form id="unknownWordsForm">
+			<p:panel id="unknownWordsPainel" header="Unknown Words! Help us ..."
+				toggleable="true" closeSpeed="500" widgetVar="panel">
+				<p:dataTable id="unknownWordsTable" var="word"
+					tableStyle="width:auto" value="#{stopWordsView.wordUnknownList}"
+					paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+
+					<p:column headerText="Word">
+						<h:outputText value="#{word.value}" />
+					</p:column>
+
+					<p:column headerText="Edition">
+						<p:commandButton update=":unknownWordsForm:unknownWordsTable"
+							value="Add Word" id="addWord" oncomplete="addWord.show()"
+							title="Add StopWord">
+
+							<f:setPropertyActionListener value="#{word}"
+								target="#{stopWordsView.selectedWord}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</div>
+
+	<div>
+		<h:form id="formMenu">
+			<h:panelGrid columns="5">
+
+				<p:commandButton id="cancelExtraction" ajax="false" value="Cancel"
+					action="#{menuView.cancelExtraction()}" />
+
+				<p:commandButton id="nextStep" ajax="false" value="Next Step"
+					action="#{menuView.nextStep()}" />
+
+				<p:commandButton id="viewResults" ajax="false" value="View Results"
+					action="#{menuView.viewResults()}" />
+
+				<p:commandButton id="backExtraction" ajax="false"
+					value="Back Extraction" action="#{menuView.backToExtraction()}" />
+
+				<p:commandButton id="listStopwords" value="List StopWords" onclick="listStopWords.show()"/>
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+</h:body>
+</html>
